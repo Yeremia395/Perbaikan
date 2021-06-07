@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>STNK</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container" id="app" style="padding-top: 20px;">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <h3 class="card-header">Identitas Motor <img src="Polisi.png" width="47" height="45" class="rounded float-right"></h3>                    
+                    <div class="card-body">
+                        <showform @send-data="getData"></showform>
+                        <showdata :data="stnk"></showdata>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <template id="show-form">
+        <form>
+            <div class="form-group">
+                <label>Nama Pemilik</label>
+                <input type="text" class="form-control" v-model="data.nama_pemilik">
+            </div>
+            <div class="form-group">
+                <label>Alamat Mobil</label>
+                <input type="text" class="form-control" v-model="data.alamat">
+            </div>
+            <div class="form-group">
+                <label>Type Mobil</label>
+                <input type="text" class="form-control" v-model="data.type_mobil">
+            </div>
+            <div class="form-group">
+                <label>Nama Mobil</label>
+                <input type="text" class="form-control" v-model="data.nama_mobil">
+            </div>
+            <div class="form-group">
+                <label>Warna Mobil</label>
+                <input type="text" class="form-control" v-model="data.warna_mobil">
+            </div>
+            <div class="form-group">
+                <label>Plat Mobil</label>
+                <input type="text" class="form-control" v-model="data.plat_mobil">
+            </div>
+            <div class="form-group">
+                <label>CC Mobil</label>
+                <input type="text" class="form-control" v-model="data.cc_mobil">
+            </div>
+            <div class="form-group">
+                <label>Tahun Pembuatan</label>
+                <input type="text" class="form-control" v-model="data.tahun_pembuatan">
+            </div>
+
+            <button type="button" class="btn btn-primary" @click="simpan">Simpan</button>
+        </form>
+    </template>
+    <br>
+    <template id="show-data">
+        <table class="table table-bordered" style="margin-top: 20px;">
+            <thead>
+                <tr>
+                    <td>Nama Pemilik</td>
+                    <td v-if="data.nama_pemilik == null">-</td>
+                    <td v-else> {{data.nama_pemilik}} </td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td v-if="data.alamat == null">-</td>
+                    <td v-else> {{data.alamat}} </td>
+                </tr>
+                <tr>
+                    <td>Type Mobil</td>
+                    <td v-if="data.type_mobil == null">-</td>
+                    <td v-else> {{data.type_mobil}} </td>
+                </tr>
+                <tr>
+                    <td>Nama Mobil</td>
+                    <td v-if="data.nama_mobil == null">-</td>
+                    <td v-else> {{data.nama_mobil}} </td>
+                </tr>
+                <tr>
+                    <td>Warna Mobil</td>
+                    <td v-if="data.warna_mobil == null">-</td>
+                    <td v-else> {{data.warna_mobil}} </td>
+                </tr>
+                <tr>
+                    <td>Plat Mobil</td>
+                    <td v-if="data.nomor_plat == null">-</td>
+                    <td v-else> {{data.plat_mobil}} </td>
+                </tr>
+                <tr>
+                    <td>CC Mobil</td>
+                    <td v-if="data.cc_motor == null">-</td>
+                    <td v-else> {{data.cc_mobil}} </td>
+                </tr>
+                <tr>
+                    <td>Tahun Pembuatan</td>
+                    <td v-if="data.tahun_pembuatan == null">-</td>
+                    <td v-else> {{data.tahun_pembuatan}} </td>
+                </tr>
+            </thead>
+        </table>
+    </template>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>
